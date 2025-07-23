@@ -1,0 +1,37 @@
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Personal notes and drafts
+notes/
+drafts/
+TODO.txt
+*.draft
+
+# Large media files (use external hosting instead)
+*.mov
+*.mp4
+*.avi
+*.zip
+*.rar
+
+# Backup files
+*.bak
+*.backup
