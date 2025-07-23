@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Designer Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e6ed;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            margin: -20px -20px 40px -20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(100px) translateY(100px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin-bottom: 50px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #64ffda;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(45deg, #64ffda, #667eea);
+            border-radius: 2px;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b8c6db;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            border-left: 4px solid #64ffda;
+        }
+
+        .education-title, .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #64ffda;
+            margin-bottom: 5px;
+        }
+
+        .institution, .company {
+            font-size: 1.1rem;
+            color: #9aa5b1;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            color: #b8c6db;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+            font-size: 0.8rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.1);
+            border-color: rgba(100, 255, 218, 0.4);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #b8c6db;
+            line-height: 1.7;
+        }
+
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .competency-item {
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .competency-item:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: scale(1.05);
+        }
+
+        .competency-title {
+            color: #64ffda;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .interest-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .interest-tag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #9aa5b1;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #64ffda;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="floating-element" style="left: 40%; animation-delay: 6s;"></div>
+        <div class="floating-element" style="left: 50%; animation-delay: 8s;"></div>
+        <div class="floating-element" style="left: 60%; animation-delay: 10s;"></div>
+        <div class="floating-element" style="left: 70%; animation-delay: 12s;"></div>
+        <div class="floating-element" style="left: 80%; animation-delay: 14s;"></div>
+        <div class="floating-element" style="left: 90%; animation-delay: 16s;"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">[Your Name]</h1>
+                <p class="title">Game Designer & Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">📧 your.email@example.com</div>
+                    <div class="contact-item">📱 Your Phone Number</div>
+                    <div class="contact-item">📍 Your City, State</div>
+                    <div class="contact-item">💼 LinkedIn Profile</div>
+                    <div class="contact-item">🎮 Portfolio Website</div>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Passionate Game Design student specializing in Unreal Engine development and UI/UX design. Experienced in creating complex interactive systems and mechanics with clean, organized blueprint architecture. Currently serving as a Game Design Tutor, demonstrating strong technical skills and ability to teach complex concepts to peers.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3 class="education-title">Bachelor of Science in Game Design</h3>
+                <p class="institution">Full Sail University | Expected Graduation: [Date]</p>
+                <p><em>Relevant Coursework: Game Development, Interactive Design, User Experience, Digital Art Production</em></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Game Development</h4>
+                    <ul class="skill-list">
+                        <li>Unreal Engine 5 (Blueprint Visual Scripting)</li>
+                        <li>Game Mechanics Design & Implementation</li>
+                        <li>Interactive System Architecture</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Design & Prototyping</h4>
+                    <ul class="skill-list">
+                        <li>Figma (UI/UX Design)</li>
+                        <li>User Interface Design</li>
+                        <li>User Experience Research</li>
+                        <li>Wireframing & Prototyping</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Programming Concepts</h4>
+                    <ul class="skill-list">
+                        <li>Object-Oriented Design</li>
+                        <li>Event-Driven Programming</li>
+                        <li>Data Structures & Management</li>
+                        <li>Version Control Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <h3 class="job-title">Game Design Tutor</h3>
+                <p class="company">Full Sail University | [Start Date] - Present</p>
+                <ul class="skill-list">
+                    <li>Mentor fellow students in game design principles and Unreal Engine development</li>
+                    <li>Provide technical guidance on blueprint scripting and system architecture</li>
+                    <li>Assist with project troubleshooting and optimization techniques</li>
+                    <li>Support students in developing portfolio-ready game projects</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Notable Projects & Systems</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Advanced Inventory System</h3>
+                    <p class="project-description">
+                        Developed comprehensive inventory management system using Unreal Engine Blueprints. Implemented drag-and-drop functionality, item categorization, and dynamic UI updates. Created modular architecture allowing for easy expansion and customization.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Environmental Hazard System</h3>
+                    <p class="project-description">
+                        Designed proximity-based damage system with real-time audio/visual feedback. Implemented realistic radiation detection mechanics with distance-based intensity. Created immersive user interface elements to enhance player experience.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Radiation Source Mechanics</h3>
+                    <p class="project-description">
+                        Built dynamic damage system calculating harm based on player proximity to hazardous sources. Developed scalable blueprint architecture for multiple radiation sources. Integrated visual and audio cues for enhanced gameplay feedback.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Modular Elevator System</h3>
+                    <p class="project-description">
+                        Engineered fully customizable multi-floor elevator system. Created intuitive blueprint interface for easy floor configuration. Implemented smooth animation systems and user interaction mechanics with clean, documented organization.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="competencies-grid">
+                <div class="competency-item">
+                    <h4 class="competency-title">System Design</h4>
+                    <p>Complex interactive mechanics, modular architecture, scalable solutions</p>
+                </div>
+                <div class="competency-item">
+                    <h4 class="competency-title">Technical Implementation</h4>
+                    <p>Clean blueprint organization, performance optimization, debugging</p>
+                </div>
+                <div class="competency-item">
+                    <h4 class="competency-title">User Experience</h4>
+                    <p>Intuitive interface design, player feedback systems, accessibility</p>
+                </div>
+                <div class="competency-item">
+                    <h4 class="competency-title">Collaboration</h4>
+                    <p>Peer mentoring, technical documentation, knowledge sharing</p>
+                </div>
+                <div class="competency-item">
+                    <h4 class="competency-title">Problem Solving</h4>
+                    <p>Creative solutions, iterative design, technical troubleshooting</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Professional Interests</h2>
+            <div class="interests">
+                <span class="interest-tag">Game Mechanics Design</span>
+                <span class="interest-tag">Interactive Storytelling</span>
+                <span class="interest-tag">User Experience Design</span>
+                <span class="interest-tag">Educational Game Development</span>
+                <span class="interest-tag">Virtual Reality Applications</span>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Portfolio and project demonstrations available upon request</p>
+        </footer>
+    </div>
+</body>
+</html>
