@@ -8,7 +8,7 @@ I'm a passionate Game Design student at Full Sail University, specializing in Un
 
 ## 🚀 Live Portfolio
 
-**[View My Portfolio](https://ChristianBKarim.github.io)**
+**[View My Portfolio](https://github.com/ChristianBKarim/My_Portfolio)**
 
 ## 🛠️ Technical Skills
 
@@ -47,8 +47,8 @@ I believe in creating **clean, organized, and scalable** game systems. My bluepr
 ## 📫 Connect With Me
 
 - **Email:** christianboukarim270@gmail.com
-- **LinkedIn:** Christian Boukarim
-- **Portfolio:** [https://ChristianBKarim.github.io]
+- **LinkedIn:** [Christian Boukarim](https://www.linkedin.com/in/christian-boukarim-2904211b6)
+- **Portfolio:** [GitHub](https://github.com/ChristianBKarim/My_Portfolio)
 
 ## 🔧 Built With
 
