@@ -85,16 +85,40 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: rgba(255,255,255,0.1);
             border-radius: 25px;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 2px solid transparent;
+            cursor: pointer;
         }
 
         .contact-item:hover {
             background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            border-color: rgba(100, 255, 218, 0.5);
+            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2);
+        }
+
+        .contact-item:active {
+            transform: translateY(0px);
+        }
+
+        /* Special styling for clickable vs non-clickable items */
+        .contact-item.clickable {
+            cursor: pointer;
+        }
+
+        .contact-item.non-clickable {
+            cursor: default;
+        }
+
+        .contact-item.non-clickable:hover {
             transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.3);
         }
 
         .section {
@@ -272,6 +296,50 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
+        /* Navigation Styles */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-button:hover {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: #64ffda;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+        }
+
+        .nav-button:active {
+            transform: translateY(0px);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add some padding to sections for better scroll positioning */
+        .section {
+            scroll-margin-top: 80px;
+        }
+
         .footer {
             text-align: center;
             padding: 40px;
@@ -348,35 +416,55 @@
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <h1 class="name">Christian Boukarim</h1>
-                <p class="title">Game Designer</p>
+                <h1 class="name">[Your Name]</h1>
+                <p class="title">Game Designer & Developer</p>
                 <div class="contact-info">
-                    <div class="contact-item">📧 christianboukarim270@gmail.com</div>
-                    <div class="contact-item">📱 +1 (561) 674-2032</div>
-                    <div class="contact-item">📍 Winter park, FL</div>
-                    <div class="contact-item">💼 linkedin profile</div>
-                    <div class="contact-item">🎮 Portfolio Website</div>
+                    <a href="mailto:christianboukarim270@gmail.com" class="contact-item clickable">
+                        📧 christianboukarim270@gmail.com
+                    </a>
+                    <a href="tel:+15616742032" class="contact-item clickable">
+                        📱 (561) 674-2032
+                    </a>
+                    <div class="contact-item non-clickable">
+                        📍 Winter Park, FL
+                    </div>
+                    <a href="https://linkedin.com/in/christian-boukarim" class="contact-item clickable" target="_blank">
+                        💼 LinkedIn Profile
+                    </a>
+                    <a href="./Christian-Boukarim-Resume.pdf" class="contact-item clickable" download="Christian-Boukarim-Resume.pdf">
+                        📄 Download Resume
+                    </a>
                 </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="navigation">
+                    <a href="#summary" class="nav-button">About</a>
+                    <a href="#education" class="nav-button">Education</a>
+                    <a href="#skills" class="nav-button">Skills</a>
+                    <a href="#experience" class="nav-button">Experience</a>
+                    <a href="#projects" class="nav-button">Projects</a>
+                    <a href="#competencies" class="nav-button">Competencies</a>
+                </nav>
             </div>
         </header>
 
-        <section class="section">
+        <section class="section" id="summary">
             <h2 class="section-title">Professional Summary</h2>
             <p class="summary">
-                Passionate Game Design student specializing in Unreal Engine development and UI/UX design. Experienced in creating complex interactive systems and mechanics with clean, organized blueprint architecture. Currently serving as a Game Design Tutor, demonstrating strong technical skills and ability to teach complex concepts to peers.
+                Passionate Game Designer specializing in Unreal Engine development and UI/UX design. Experienced in creating complex interactive systems and mechanics with clean, organized blueprint architecture. Currently gaining experience as a Game Design Tutor, demonstrating strong technical skills and ability to teach complex concepts to peers.
             </p>
         </section>
 
-        <section class="section">
+        <section class="section" id="education">
             <h2 class="section-title">Education</h2>
             <div class="education-item">
                 <h3 class="education-title">Bachelor of Science in Game Design</h3>
-                <p class="institution">Full Sail University | Expected Graduation: November 2026</p>
-                <p><em>Relevant Coursework: Game Development, Interactive Design, User Experience</em></p>
+                <p class="institution">Full Sail University | Expected Graduation: [Date]</p>
+                <p><em>Relevant Coursework: Game Development, Interactive Design, User Experience, Digital Art Production</em></p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="skills">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -384,6 +472,7 @@
                     <ul class="skill-list">
                         <li>Unreal Engine 5 (Blueprint Visual Scripting)</li>
                         <li>Game Mechanics Design & Implementation</li>
+                        <li>Interactive System Architecture</li>
                         <li>Performance Optimization</li>
                     </ul>
                 </div>
@@ -400,32 +489,33 @@
                     <h4>Programming Concepts</h4>
                     <ul class="skill-list">
                         <li>Object-Oriented Design</li>
-                        <li>Comprehensible programming for better teamwork</li>
-                        <li>Version Control Systems (GitHub, Perforce)</li>
+                        <li>Event-Driven Programming</li>
+                        <li>Data Structures & Management</li>
+                        <li>Version Control Systems</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="experience">
             <h2 class="section-title">Experience</h2>
             <div class="experience-item">
                 <h3 class="job-title">Game Design Tutor</h3>
-                <p class="company">Full Sail University | 2/28/2025 - Present</p>
+                <p class="company">Full Sail University | [Start Date] - Present</p>
                 <ul class="skill-list">
                     <li>Mentor fellow students in game design principles and Unreal Engine development</li>
-                    <li>Provide technical guidance on blueprint scripting and systems design</li>
+                    <li>Provide technical guidance on blueprint scripting and system architecture</li>
                     <li>Assist with project troubleshooting and optimization techniques</li>
                     <li>Support students in developing portfolio-ready game projects</li>
                 </ul>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="projects">
             <h2 class="section-title">Notable Projects & Systems</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3 class="project-title">Environmental Hazard System</h3>
+                    <h3 class="project-title">Environmental Hazard System(Geiger Counter)</h3>
                     <p class="project-description">
                         Designed proximity-based damage system with real-time audio/visual feedback. Implemented realistic radiation detection mechanics with distance-based intensity. Created immersive user interface elements to enhance player experience.
                     </p>
@@ -439,18 +529,18 @@
                 <div class="project-card">
                     <h3 class="project-title">Modular Elevator System</h3>
                     <p class="project-description">
-                        Engineered fully customizable multi-floor elevator system. Created intuitive blueprint interface for easy floor configuration. Implemented smooth animation systems and user interaction mechanics with clean, documented organization.
+                        Engineered fully customizable multi-floor elevator system. Created intuitive blueprint interface for easy floor configuration. Implemented smooth animation and user interaction mechanics with clean, documented organization.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="competencies">
             <h2 class="section-title">Core Competencies</h2>
             <div class="competencies-grid">
                 <div class="competency-item">
                     <h4 class="competency-title">System Design</h4>
-                    <p>Complex interactive mechanics, modular architecture, scalable solutions</p>
+                    <p>Complex data management, Google Sheets experience</p>
                 </div>
                 <div class="competency-item">
                     <h4 class="competency-title">Technical Implementation</h4>
@@ -477,7 +567,7 @@
                 <span class="interest-tag">Game Mechanics Design</span>
                 <span class="interest-tag">User Experience Design</span>
                 <span class="interest-tag">Educational Game Development</span>
-                <span class="interest-tag">Virtual Reality Applications</span>
+                <span class="interest-tag">Data Management and Design</span>
             </div>
         </section>
 
