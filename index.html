@@ -192,12 +192,50 @@
             padding: 20px;
             border-radius: 10px;
             border-top: 3px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-2px);
+        }
+
+        .skill-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
         }
 
         .skill-category h4 {
             color: #64ffda;
-            margin-bottom: 15px;
+            margin-bottom: 0;
             font-size: 1.2rem;
+        }
+
+        .skill-expand-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .skill-category.expanded .skill-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .skill-list-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+
+        .skill-category.expanded .skill-list-container {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 15px;
         }
 
         .skill-list {
@@ -598,25 +636,57 @@
  <section class="section" id="skills">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Game Development</h4>
-                    <ul class="skill-list">
-                        <li>Unreal Engine 5 (Blueprint Visual Scripting)</li>
-                        <li>Game Mechanics Design & Implementation</li>
-                    </ul>
+                <div class="skill-category" onclick="toggleSkillCategory(this)">
+                    <div class="skill-category-header">
+                        <h4>Game Development</h4>
+                        <span class="skill-expand-icon">▼</span>
+                    </div>
+                    <div class="skill-list-container">
+                        <ul class="skill-list">
+                            <li>Unreal Engine 5 (Blueprint Visual Scripting)</li>
+                            <li>Game Mechanics Design & Implementation</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h4>Design & Prototyping</h4>
-                    <ul class="skill-list">
-                        <li>Figma (UI/UX Design)</li>
-                    </ul>
+
+                <div class="skill-category" onclick="toggleSkillCategory(this)">
+                    <div class="skill-category-header">
+                        <h4>Project Management</h4>
+                        <span class="skill-expand-icon">▼</span>
+                    </div>
+                    <div class="skill-list-container">
+                        <ul class="skill-list">
+                            <li>ClickUp</li>
+                            <li>Jira</li>
+                            <li>Discord</li>
+                            <li>Codecks</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h4>Programming Concepts</h4>
-                    <ul class="skill-list">
-                        <li>Object-Oriented Design</li>
-                        <li>Version Control Systems (GitHub, Perforce)</li>
-                    </ul>
+                
+                <div class="skill-category" onclick="toggleSkillCategory(this)">
+                    <div class="skill-category-header">
+                        <h4>Design & Prototyping</h4>
+                        <span class="skill-expand-icon">▼</span>
+                    </div>
+                    <div class="skill-list-container">
+                        <ul class="skill-list">
+                            <li>Figma (UI/UX Design)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skill-category" onclick="toggleSkillCategory(this)">
+                    <div class="skill-category-header">
+                        <h4>Programming Concepts</h4>
+                        <span class="skill-expand-icon">▼</span>
+                    </div>
+                    <div class="skill-list-container">
+                        <ul class="skill-list">
+                            <li>Version Control Systems (GitHub, Perforce)</li>
+                            <li>Debugging</li>
+                            <li>Incremental Development Style programming</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -650,7 +720,10 @@
     </div>
 
     <script>
-        // Removed toggleProject function as projects no longer collapse/expand
+        // Toggle skill category dropdowns
+        function toggleSkillCategory(skillCategory) {
+            skillCategory.classList.toggle('expanded');
+        }
     </script>
 </body>
 </html>
