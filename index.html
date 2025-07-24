@@ -219,6 +219,26 @@
             font-size: 0.8rem;
         }
 
+        /* Projects Section Styles */
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .project-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -231,6 +251,7 @@
             border-radius: 15px;
             border: 1px solid rgba(100, 255, 218, 0.2);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .project-card:hover {
@@ -249,6 +270,50 @@
         .project-description {
             color: #b8c6db;
             line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            border-left: 3px solid #64ffda;
+        }
+
+        .project-card.expanded .project-details {
+            max-height: 300px;
+            opacity: 1;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .project-details h4 {
+            color: #64ffda;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .project-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-details li {
+            color: #9aa5b1;
+            padding: 3px 0;
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #64ffda;
         }
 
         .competencies-grid {
@@ -360,6 +425,12 @@
             .section {
                 padding: 20px;
             }
+
+            .projects-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
         }
 
         .floating-elements {
@@ -454,7 +525,7 @@
             </p>
         </section>
         
-   <section class="section">
+        <section class="section">
             <h2 class="section-title">Professional Interests</h2>
             <div class="interests">
                 <span class="interest-tag">Game Mechanics Design</span>
@@ -516,23 +587,63 @@
         <section class="section" id="projects">
             <h2 class="section-title">Notable Projects & Systems</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3 class="project-title">Environmental Hazard System (Geiger Counter)</h3>
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <h3 class="project-title">Environmental Hazard System (Geiger Counter)</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
                     <p class="project-description">
                         Designed proximity-based feedback system with real-time audio/visual feedback. Implemented realistic radiation detection mechanics with distance-based intensity. Created immersive user interface elements to enhance player experience.
                     </p>
+                    <div class="project-details">
+                        <h4>Technical Implementation:</h4>
+                        <ul>
+                            <li>Dynamic audio intensity based on proximity calculations</li>
+                            <li>Real-time UI updates with smooth transitions</li>
+                            <li>Optimized tick functions for performance</li>
+                            <li>Modular blueprint architecture for easy customization</li>
+                            <li>Integration with particle effects and screen overlays</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3 class="project-title">Radiation Source Mechanics</h3>
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <h3 class="project-title">Radiation Source Mechanics</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
                     <p class="project-description">
                         Built dynamic damage system calculating harm based on player proximity to hazardous sources. Developed scalable blueprint architecture for multiple radiation sources. Integrated visual and audio cues for enhanced gameplay feedback.
                     </p>
+                    <div class="project-details">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Multi-source radiation field calculations</li>
+                            <li>Progressive damage system with health integration</li>
+                            <li>Visual warning indicators and danger zones</li>
+                            <li>Configurable radiation strength and falloff curves</li>
+                            <li>Performance optimization for multiple active sources</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3 class="project-title">Modular Elevator System</h3>
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <h3 class="project-title">Modular Elevator System</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
                     <p class="project-description">
                         Engineered fully customizable multi-floor elevator system. Created intuitive blueprint interface for easy floor configuration. Implemented smooth animation and user interaction mechanics with clean, documented organization.
                     </p>
+                    <div class="project-details">
+                        <h4>System Capabilities:</h4>
+                        <ul>
+                            <li>Dynamic floor addition/removal during runtime</li>
+                            <li>Smooth interpolation between floors with easing curves</li>
+                            <li>Interactive UI panel with floor selection</li>
+                            <li>Door automation with safety mechanisms</li>
+                            <li>Comprehensive error handling and edge case management</li>
+                            <li>Fully documented blueprint nodes for team collaboration</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -541,5 +652,11 @@
             <p>Portfolio and project demonstrations available upon request</p>
         </footer>
     </div>
+
+    <script>
+        function toggleProject(projectCard) {
+            projectCard.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
