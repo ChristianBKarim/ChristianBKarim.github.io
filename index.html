@@ -230,12 +230,18 @@
             overflow: hidden;
             transition: all 0.4s ease;
             opacity: 0;
+            margin-top: 0;
         }
 
         .skill-category.expanded .skill-list-container {
             max-height: 200px;
-            opacity: 1;
             margin-top: 15px;
+            opacity: 1;
+        }
+
+        /* Show content when any category is expanded */
+        .skills-grid.has-expanded .skill-list-container {
+            opacity: 1;
         }
 
         .skill-list {
@@ -749,6 +755,16 @@
         // Toggle skill category dropdowns
         function toggleSkillCategory(skillCategory) {
             skillCategory.classList.toggle('expanded');
+            
+            // Check if any category is expanded and add/remove class accordingly
+            const skillsGrid = document.querySelector('.skills-grid');
+            const anyExpanded = skillsGrid.querySelector('.skill-category.expanded');
+            
+            if (anyExpanded) {
+                skillsGrid.classList.add('has-expanded');
+            } else {
+                skillsGrid.classList.remove('has-expanded');
+            }
         }
     </script>
 </body>
