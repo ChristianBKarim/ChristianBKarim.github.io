@@ -276,12 +276,12 @@
         .gallery-image {
             width: 100%;
             height: auto;
-            max-height:220px;
-            background: #111;
+            max-height:260px;
+            background: #0f0f23;
+            border-radius: 0 0 15px 15px;
             object-fit: contain;
             object-position: center;
             display: block;
-            transition: transform 0.3s ease;
         }
         .image-item:hover .gallery-image {
             transform: scale(1.04);
@@ -318,6 +318,8 @@
             color: #b8c6db;
             font-size: 0.95rem;
             line-height: 1.5;
+            flex-grow: 1;
+            background: rgba(0,0,0,0.15);
         }
         .video-gallery {
             display: grid;
