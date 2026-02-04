@@ -17,8 +17,8 @@ I'm a passionate Game Design student at Full Sail University, specializing in Un
 
 ## 🎯 Featured Projects
 
-### Simple Inventory System
-Inventory system with simple Pickup functions, implementable in various actors.
+### Top-Down Shooter Stealth Mechanics
+Steaalth mechanic with Multiple raycastings and manipulating enemy mesh material to fade in visibility when entering player flashlight cone.
 
 ### Environmental Hazard System (Geiger Counter)
 Proximity-based system with real-time audio/visual feedback, providing realistic radiation detection mechanics.
@@ -48,7 +48,7 @@ I believe in creating **clean, organized, and scalable** game systems. My bluepr
 
 - **Email:** christianboukarim270@gmail.com
 - **LinkedIn:** [Christian Boukarim](https://www.linkedin.com/in/christian-boukarim-2904211b6)
-- **Portfolio:** [GitHub](https://github.com/ChristianBKarim/My_Portfolio)
+- **Discord:** [Xtian](https://discordapp.com/users/642917746765594645)
 
 ## 🔧 Built With
 
@@ -58,17 +58,6 @@ This portfolio website is built with:
 - Interactive animations and effects
 - Optimized for all devices
 
----
-
-*Portfolio and project demonstrations available upon request*
-
-### 📝 Repository Structure
-
-```
-├── index.html          # Main portfolio page
-├── README.md           # This file
-├── LICENSE            # MIT License
-└── .gitignore         # Git ignore rules
 ```
 
 ## 🚀 Future Additions
